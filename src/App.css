@@ -54,3 +54,60 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50; /* Dark blue-gray */
+  padding: 15px 20px;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Website title */
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Navbar buttons container */
+.navbar-links {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+}
+
+/* Common button styles */
+.nav-btn {
+  background-color: #3498db; /* Blue */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Home button */
+.home-btn {
+  background-color: #27ae60; /* Green */
+}
+
+/* Cart button */
+.cart-btn {
+  background-color: #e67e22; /* Orange */
+}
+
+/* Wishlist button */
+.wishlist-btn {
+  background-color: #e74c3c; /* Red */
+}
+
+/* Hover effects */
+.nav-btn:hover {
+  opacity: 0.8;
+}

@@ -1,17 +1,47 @@
-import React from 'react'
+import React,{useState} from 'react'
 import jsonData from "../products.json"
+import { Input, Button, Card, Row, Col } from 'antd';
 
-const Home = () => {
-  return (
-    <>
-    {jsonData.map((product)=>(
-        <li key={product.id}>
-            <img src={product.image}></img>
-            <h3>{product.name}--{product.price}</h3>
-        </li>
-    ))}
+const { Search } = Input;
+
+
+
+const Home = ({filteredItems}) => {
+
+
+  
+  
+  return (<>
+
+
+<Row gutter={16}>
+        {filteredItems.map(item => (
+          <Col span={8} key={item.id}>
+            <Card title={item.name} bordered={false}>
+              <p>Category: {item.category}</p>
+              <img src={item.image} style={{height:"100px",width:"100px" }}></img>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+
     </>
   )
 }
 
 export default Home
+
+
+
+ 
+
+  
+
+
+
+
+
+
+
+
+
