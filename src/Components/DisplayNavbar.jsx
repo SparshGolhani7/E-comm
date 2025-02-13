@@ -31,12 +31,17 @@ const DisplayNavbar = ({filteredItems,setFilteredItems}) => {
         navigate('/wishlist');
     };
 
+    const handleShopNow = () => {
+      navigate('/shopnow');
+    };
+
+
 
 
 
     return (
       <nav className="navbar">
-        <h1 className="navbar-title">React - Ecommerce</h1>
+        <h1 className="navbar-title">sMart</h1>
         <div className="navbar-links">
 
           
@@ -53,8 +58,14 @@ const DisplayNavbar = ({filteredItems,setFilteredItems}) => {
 
 
 
-          <button onClick={() => navigate('/')} className="nav-btn home-btn" filteredItems={filteredItems}>
+          <button onClick={() => navigate('/')} className="nav-btn home-btn" >
             Home
+          </button>
+          <button onClick={handleShopNow} className="nav-btn " >
+            ShopNow
+          </button>
+          <button onClick={() => navigate('/bestseller')} className="nav-btn home-btn" filteredItems={filteredItems}>
+            BestSeller
           </button>
           <button onClick={handleViewCart} className="nav-btn cart-btn">
             My Cart 

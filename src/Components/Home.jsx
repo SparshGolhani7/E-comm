@@ -7,13 +7,7 @@ const { Search } = Input;
 
 
 const Home = ({filteredItems}) => {
-
-
-  
-  
   return (<>
-
-
 <Row gutter={16}>
         {filteredItems.map(item => (
           <Col span={8} key={item.id}>
@@ -24,7 +18,6 @@ const Home = ({filteredItems}) => {
           </Col>
         ))}
       </Row>
-
     </>
   )
 }
