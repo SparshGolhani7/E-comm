@@ -9,6 +9,8 @@ import {useState} from 'react'
 import ShopNow from "./Components/ShopNow"
 import BestSellers from "./Components/BestSellers"
 import { CartProvider } from "./context/CartContext"
+import MyCart from "./Components/MyCart"
+import Wishlist from "./Components/Wishlist"
 
 function App() {
   const [filteredItems,setFilteredItems] = useState(jsonData);
@@ -24,8 +26,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home filteredItems={filteredItems}/>}></Route>
       <Route path="/shopnow" element={<ShopNow filteredItems1={filteredItems1} setFilteredItems1={setFilteredItems1}/>}></Route>
-      <Route path="/bestSeller" element={<BestSellers filteredItems={filteredItems} 
-      />}></Route>
+      <Route path="/bestSeller" element={<BestSellers filteredItems={filteredItems} />}></Route>
+      <Route path="/viewcart" element={<MyCart/>}></Route>
+      <Route path="/wishlist" element={<Wishlist/>}></Route>
+
 
     </Routes>
     </BrowserRouter>
