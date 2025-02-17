@@ -7,19 +7,30 @@ import Navbar from './Components/Navbar'
 import jsonData from './products.json'
 import {useState} from 'react'
 import ShopNow from "./Components/ShopNow"
+import BestSellers from "./Components/BestSellers"
+import { CartProvider } from "./context/CartContext"
 
 function App() {
   const [filteredItems,setFilteredItems] = useState(jsonData);
+  const [filteredItems1,setFilteredItems1] = useState(jsonData);
 
   return (
+
+    <CartProvider>
     <BrowserRouter>
+   
     {/* <Navbar/> */}
     <DisplayNavbar filteredItems={filteredItems} setFilteredItems={setFilteredItems}/>
     <Routes>
       <Route path="/" element={<Home filteredItems={filteredItems}/>}></Route>
-      <Route path="/shopnow" element={<ShopNow filteredItems={filteredItems}/>}></Route>
+      <Route path="/shopnow" element={<ShopNow filteredItems1={filteredItems1} setFilteredItems1={setFilteredItems1}/>}></Route>
+      <Route path="/bestSeller" element={<BestSellers filteredItems={filteredItems} 
+      />}></Route>
+
     </Routes>
     </BrowserRouter>
+    </CartProvider>
+    
   )
 }
 

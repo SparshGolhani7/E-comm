@@ -64,7 +64,7 @@ const DisplayNavbar = ({filteredItems,setFilteredItems}) => {
           <button onClick={handleShopNow} className="nav-btn " >
             ShopNow
           </button>
-          <button onClick={() => navigate('/bestseller')} className="nav-btn home-btn" filteredItems={filteredItems}>
+          <button onClick={() => navigate('/bestSeller')} className="nav-btn home-btn" >
             BestSeller
           </button>
           <button onClick={handleViewCart} className="nav-btn cart-btn">
