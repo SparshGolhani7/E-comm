@@ -1,28 +1,30 @@
-// import React from 'react'
+// // import React from 'react'
 
-// const MyCart = () => {
-//   return (
-//     <div>MyCart</div>
-//   )
-// }
+// // const MyCart = () => {
+// //   return (
+// //     <div>MyCart</div>
+// //   )
+// // }
 
-// export default MyCart
+// // export default MyCart
 
 
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Button, Card, InputNumber, Row, Col, Space, Typography } from "antd";
 import { DeleteOutlined } from '@ant-design/icons';
-import jsonData from "../products.json"
+import { CartContext } from "../context/CartContext"; 
+
 
 const { Title, Text } = Typography;
 
 export default function MyCart() {
-  const [cartItems, setCartItems] = useState(jsonData)
+  const { increment, decrement, cart } = useContext(CartContext);
+  const [cartItems, setCartItems] = useState(cart)
 
   const handleQuantityChange = (id, value) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: value } : item
+        item.id === id ? { ...item, qty: value } : item
       )
     );
   };
@@ -32,7 +34,7 @@ export default function MyCart() {
   };
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce((total, item) => total + item.price * item.qty, 0);
   };
 
   return (
@@ -43,7 +45,7 @@ export default function MyCart() {
           <Col span={8} key={item.id}>
             <Card
               hoverable
-              cover={<img alt={item.name} src={item.imageUrl} />}
+              cover={<img alt={item.name} src={item.image} />}
               actions={[
                 <Button
                   type="danger"
@@ -54,15 +56,15 @@ export default function MyCart() {
                 </Button>,
               ]}
             >
-              <Card.Meta title={item.name} description={`₹${item.price}`} />
+              <Card.Meta title={item.name} description={item.price} />
               <Space direction="vertical" style={{ width: "100%" }}>
                 <InputNumber
                   min={1}
-                  value={item.quantity}
+                  value={item.qty}
                   onChange={(value) => handleQuantityChange(item.id, value)}
                   style={{ width: "100%" }}
                 />
-                <Text strong>Total: ₹{item.price * item.quantity}</Text>
+                <Text strong>Total: ₹{item.price * item.qty}</Text>
               </Space>
             </Card>
           </Col>
@@ -78,3 +80,7 @@ export default function MyCart() {
     </div>
   );
 }
+
+
+
+
